@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="uk-UA">
+
+<head itemscope itemtype="http://schema.org/WebSite">
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-comsearchButtonpatible" content="ie=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Project</title>
+
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="scss/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""> </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+<div class="bodyDiv">
+    <header>
+        <div class="topOfHeader">
+            <h1>Teachinder</h1>
+            <form name="searchForm" class="searchForm" id="searchForm">
+                <input id="searchField" class="inputArea" placeholder="Name, note or age to search"/>
+                <button id="searchButtonClick" class="searchButton button">Search</button>
+            </form>
+        </div>
+
+        <div class="bottomOfHeader">
+
+            <nav class="menu">
+                <ul>
+                    <li><a href="#topTeachersText">Teachers</a></li>
+                    <li><a href="#statisticsText">Statistics</a></li>
+                    <li><a href="#favoritesText">Favorites</a></li>
+                    <li><a href="#aboutText">About</a></li>
+                </ul>
+            </nav>
+            <button class="addTeacherButton button">
+                <a href="#addTeacherPopupBack">Add teacher</a>
+            </button>
+        </div>
+
+    </header>
+    <hr/>
+    <section class="topTeachersContainer">
+        <a href="#teacherInfoPopup">
+            <h2 id="topTeachersText">Top Teachers</h2>
+        </a>
+
+        <section class="filtersContainer">
+            <div>
+                <label for="ageSelect">Age</label>
+                <select name="age" id="ageSelect">
+                    <option value="all">all</option>
+                    <option value="18-31">18-31</option>
+                    <option value="18<"> 18&lt; </option>
+                    <option value=">31"> &gt;31</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="regionSelect">Region</label>
+                <select name="region" id="regionSelect">
+                    <option value="all">all</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Ireland">Ireland</option>
+                    <option value="Australia">Australia</option>
+                    <option value="United States">United States</option>
+                    <option value="Turkey">Turkey</option>
+                    <option value="Finland">Finland</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="sexSelect">Sex</label>
+                <select name="sex" id="sexSelect">
+                    <option value="all">all</option>
+                    <option value="male">male</option>
+                    <option value="female">female</option>
+                </select>
+            </div>
+
+            <div>
+                <input type="checkbox" id="onlyWithPhoto" name="onlyWithPhotoName" />
+                <label for="onlyWithPhoto">Only with photo</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="onlyFavorites" name="onlyFavorites"/>
+                <label for="onlyFavorites">Only favorites</label>
+            </div>
+
+
+        </section>
+        <section>
+
+        </section>
+        <section class="teachersCardsContainer" id = "teachersCardsContainer">
+
+            <div class="roundedPhoto">
+                <div class="photo">
+                    <img class="personPhoto" alt="person" src="images\manTeacher.jpg">
+                </div>
+                <img class="star" alt="star" src="images\star.png"></img>
+
+
+                <article>
+                    <p class="nameText">Ihor</p>
+                    <p class="surnameText">Tkachuk</p>
+                    <p class="subjectText">Chemistry</p>
+                    <p class="countryText">Ukraine</p>
+                </article>
+            </div>
+
+            <div class="roundedPhoto">
+                <div class="noPhoto">
+                    <p>R.L</p>
+                </div>
+                <article>
+                    <p class="nameText">Ihor</p>
+                    <p class="surnameText">Tkachuk</p>
+                    <p class="subjectText">Chemistry</p>
+                    <p class="countryText">Ukraine</p>
+                </article>
+            </div>
+        </section>
+        <section><button id="tenMoreButton" class="button">10 more</button></section>
+    </section>
+    <hr/>
+    <section>
+        <h2 id="statisticsText">Statistics</h2>
+    
+        <table class="statisticsTable" id="statisticsTable">
+            <thead>
+            <tr>
+                <th id="nameHeader">Name
+                    <span class="tableArrow">↓</span>
+                </th>
+                <th id="specialityHeader">Speciality
+                    <span class="tableArrow">↓</span>
+                </th>
+                <th id="ageHeader">Age
+                    <span class="tableArrow">↓</span>
+                </th>
+                <th id="genderHeader">Gender
+                    <span class="tableArrow">↓</span>
+                </th>
+                <th id="nationalityHeader">Nationality
+                    <span class="tableArrow">↓</span>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <!-- Кругова діаграма зі статистикою -->
+    <canvas id="statisticsChart" width="100" height="100" style="margin-top: 40px;"></canvas>
+</section>
+
+        <nav>
+            <ol class="underTableList">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>...</li>
+                <li>Last</li>
+            </ol>
+        </nav>
+    </section>
+
+    <hr/>
+    
+    <section>
+        <h2 id="favoritesText">Favorites</h2>
+        <section id="carouselOfTeacherCards">
+            <div class="arrowButton arrowButtonLeft"><img class="arrowLeft" alt="arrow_left" src="images\angle_left_icon.png"/></div>
+            <div class="arrowButton arrowButtonRight"><img class="arrowRight arrow" alt="arrow_right" src="images\angle_right_icon.png"/></div>
+            <div class="overflow">
+
+            </div>
+        </section>
+    </section>
+    <hr/>
+    <section class="paragraphOfText">
+        <article id="aboutText">
+            Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor
+            incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid
+            ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit
+            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat
+            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+            <br></br>
+            Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor
+            <br></br>
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </article></section>
+    <footer>
+
+        <div class="footerContainer">
+            <nav class="menu">
+                <ul>
+                    <li><a href="#topTeachersText">Teachers</a></li>
+                    <li><a href="#statisticsText">Statistics</a></li>
+                    <li><a href="#favoritesText">Favorites</a></li>
+                    <li><a href="#aboutText">About</a></li>
+                </ul>
+            </nav>
+            <button class="addTeacherButton button">Add teacher</button>
+        </div>
+    </footer>
+</div>
+<section class="addTeacherPopupBack" id="addTeacherPopupBack">
+    <section class="addTeacherPopup">
+        <section class="popupHeader">
+
+            <h3>Add Teacher</h3>
+            <button class="closePopup" id="closePopupAddTeacher">
+                x
+            </button>
+
+        </section>
+
+        <form id="addTeacherForm" class="popupForm flexColumn" name="popupForm" method="post" action="http://localhost:3000/users">
+            <fieldset class="enterName flexColumn">
+                <label for="addName">Name</label>
+                <input type="text" class="addName" name="addName" placeholder="Enter name" required/>
+            </fieldset>
+
+            <fieldset class="flexColumn">
+                <label for="addSpeciality">Speciality</label>
+                <select name="addSpeciality" id="addSpeciality" required>
+                    <option value="math" selected>Mathematics</option>
+                    <option value="physics">Physics</option>
+                    <option value="vocal">Vocal</option>
+                    <option value="chemistry">Chemistry</option>
+                    <option value="chess">Chess</option>
+                    <option value="computer-science">Computer Science</option>
+                    <option value="biology">Biology</option>
+                </select>
+            </fieldset>
+            <section class="gridForm">
+                <fieldset class="flexColumn">
+                    <label for="addCountry">Country</label>
+                    <select class="addCountry" name="addCountry" required>
+                        <option value="Ukraine" selected>Ukraine</option>
+                        <option value="India">India</option>
+                        <option value="UK">UK</option>
+                        <option value="Belarus">Belarus</option>
+                        <option value="Denmark">Denmark</option>
+                        <option value="Poland">Poland</option>
+                        <option value="Belgium">Belgium</option>
+                        <option value="China">China</option>
+                        <option value="Vietnam">Vietnam</option>
+                        <option value="USA">USA</option>
+                        <option value="Ireland">Ireland</option>
+                        <option value="England">England</option>
+                        <option value="Austria">Austria</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Netherlands">Netherlands</option>
+                        <option value="Scotland">Scotland</option>
+                        <option value="France">France</option>
+                    </select>
+
+                    <label for="addCity">City</label>
+                    <input type="text" class="addCity" name="addCity"/>
+                </fieldset>
+
+                <fieldset class="flexColumn">
+                    <label for="addEmail">Email</label>
+                    <input type="email" class="addEmail" name="addEmail" required/>
+
+                    <label for="addPhone">Phone</label>
+                    <input type="tel" class="addPhone" name="addPhone" required/>
+                </fieldset>
+
+                <fieldset class="flexColumn">
+                    <label for="addDate">Date of birth</label>
+                    <input type="date" class="addDate" name="addDate" required/>
+                </fieldset>
+            </section>
+            <fieldset class="genderChoice">
+                <label>Sex</label>
+
+                <label for="male">Male</label>
+                <input type="radio" data-sex="male" name="sex" value="male"/>
+
+                <label for="female">Female</label>
+                <input type="radio" data-sex="female" name="sex" value="female"/>
+            </fieldset>
+
+            <fieldset class="genderChoice">
+                <label for="addBgColor">Background color</label>
+                <input type="color" class="addBgColor" name="addBgColor"/>
+            </fieldset>
+
+            <fieldset class="flexColumn">
+                <label for="addNotes">Notes (optional)</label>
+                <textarea class="addNotes" name="addNotes" rows="5"></textarea>
+            </fieldset>
+
+            <button id="addTeacherButtonForm" type="submit" class="addTeacherForm button" >Add</button>
+        </form>
+    </section>
+</section>
+
+<section class="teacherInfoPopupBack" id="teacherInfoPopup">
+    <section class="teacherInfoPopup">
+        <section class="popupHeader">
+            <h3>Teacher Info</h3>
+            <div class="rightUpOfInfoPopupHeader">
+                <button class="favoriteStarButton" id="favoriteStarButton"><img src="images\star-outline.svg" alt="Star Button Not Filled"></button>
+                <button class="closePopup" id="closePopupInfoTeacher">x</button>
+            </div>
+        </section>
+        <section class="photoPlusData">
+            <div><img class="teacherPhotoInfoPopup" src="images/manTeacher.jpg" alt="teacher man"/>
+            </div>
+            <article class="teacherDataPopup">
+                <h1>Ihor Tkachuk</h1>
+                <address>
+                    <p>Chemistry</p>
+                    <p>Kyiv, Ukraine</p>
+                    <p>35, Male</p>
+                    <p class="email">ihor_tkachuk@domain.com</p>
+                    <p>+380964993252</p>
+                    <p class="days-to-birthday"></p>
+                </address>
+            </article>
+        </section>
+        <article class="dataPopUp">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Pellentesque fermentum vel est quis viverra. Praesent lobortis
+                ligula eu erat cursus, eu placerat mauris tempus. Cras tincidunt
+                tempor viverra. Nulla condimentum, neque id interdum venenatis,
+                augue dui vestibulum turpis, accumsan posuere ipsum neque eget
+                massa. Maecenas porta est malesuada interdum aliquam. Donec felis
+                sem, hendrerit at vulputate vel, feugiat id ipsum. Duis auctor
+                dapibus aliquet.
+            </p>
+        </article>
+
+        <a href="javascript:void(0);" class="toggleMap" id="toggleMapButton">Toggle Map</a>
+        <div id="mapContainer" style="display: none; margin-top: 10px;">
+            <div id="map" style="height: 400px; width: 100%;"></div>
+        </div>
+        
+        
+    </section>
+</section>
+
+<script src="js/FE4U-Lab2-mock.js"></script>
+		<script src="js/app.js"></script>
+</body>
+</html>

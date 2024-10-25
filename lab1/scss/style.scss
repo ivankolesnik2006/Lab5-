@@ -1,0 +1,960 @@
+/* Import fonts */
+@import url("../fonts/Roboto.css");
+/* Reset and normalize */
+@import url("../css/normalize.css");
+* {
+  margin: 0px;
+}
+
+html {
+  font-size: 3vw;
+}
+
+body {
+  font-family: "Roboto";
+}
+
+.bodyDiv {
+  margin: 0 auto;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  padding-left: 5%;
+  padding-right: 5%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+header {
+  width: 100%;
+}
+
+.topOfHeader {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0px 14px 0;
+}
+
+header h1 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.3em;
+  font-weight: 700;
+  color: white;
+  text-shadow: 2px 1px 0 black, -1px -1px 0 red;
+  margin: 0px;
+  padding: 0px;
+  margin-top: 1.5%;
+}
+
+header h1:hover {
+  color: white;
+  text-shadow: 2px 2px 0 black, -3px -1px 0 red;
+}
+
+.searchForm {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.searchForm:hover {
+  width: 55%;
+}
+
+.inputArea {
+  width: calc(100% - 2.5rem);
+  padding-left: 3%;
+  font-size: 0.4rem;
+  border: solid 1px darkgray;
+  height: 1.2rem;
+}
+#topTeachersText{
+  color: black;
+}
+.button {
+  background: white;
+  font-weight: 550;
+  border: solid 1px rgb(238, 92, 75);
+  color: rgb(238, 92, 75);
+}
+
+.searchButton {
+  margin-left: 20px;
+  width: 3rem;
+  font-size: 0.4rem;
+  height: 1.2rem;
+}
+
+.searchButton:hover {
+  color: white;
+  background-color: rgb(238, 92, 75);
+}
+
+.addTeacherButton a {
+  text-decoration: none;
+  color: rgb(238, 92, 75);
+}
+
+.bottomOfHeader {
+  display: flex;
+  flex-direction: row;
+  height: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu ul {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 0.5rem;
+  gap: 1rem;
+}
+
+.menu ul li a {
+  color: rgb(238, 92, 75);
+}
+
+.menu ul li a:hover {
+  color: rgb(158, 64, 6);
+}
+
+.addTeacherButton {
+  width: 18%;
+  font-size: 0.5rem;
+  height: 1.2rem;
+}
+
+.addTeacherButton:hover {
+  color: white;
+  background-color: rgb(238, 92, 75);
+}
+.addTeacherButton:hover a {
+  color: white;
+}
+.addTeacherButton2 {
+  width: 100%;
+  font-size: 0.5rem;
+  height: 1.2rem;
+}
+
+.addTeacherButton2:hover {
+  color: white;
+  background-color: rgb(238, 92, 75);
+}
+.addTeacherButton2:hover a {
+  color: white;
+}
+hr {
+  align-self: center;
+  width: 50%;
+  border-color: black;
+}
+h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.topTeachersContainer {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.filtersContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.filtersContainer div {
+  padding-right: 0.4rem;
+  margin-right: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-right: 1.5px dotted rgb(60, 60, 60);
+}
+
+.filtersContainer div:last-child {
+  border: 0px;
+}
+
+.filtersContainer div label {
+  padding-right: 0.3rem;
+  color: darkgray;
+  align-self: center;
+  font-size: 0.3rem;
+  margin: 0;
+}
+
+.filtersContainer div label:hover {
+  color: black;
+}
+
+.filtersContainer select,
+.filtersContainer input[type="checkbox"] {
+  align-self: center;
+  align-content: center;
+  text-align: center;
+  color: rgb(60, 60, 60);
+  font-size: 0.3rem;
+  height: 0.9rem;
+  margin-left: 7px;
+}
+
+.filtersContainer select option {
+  color: rgb(60, 60, 60);
+}
+
+.filtersContainer div input {
+  width: 0.5rem;
+  margin-right: 0.1rem;
+
+}
+
+.teachersCardsContainer {
+  margin: 20px 0px 10px 0;
+  width: 100%;
+  display: grid;
+  row-gap: 15px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.photo {
+  width: 3.6rem;
+  height: 3.6rem;
+  display: flex;
+  align-self: center;
+  border-radius: 100%;
+  border: solid 3px rgb(238, 92, 75);
+  overflow: hidden;
+}
+
+.star {
+  width: 0.6rem;
+  position: absolute;
+  right: 16%;
+  top: 0%;
+}
+
+.noPhoto {
+  width: 3.6rem;
+  height: 3.6rem;
+  display: flex;
+  align-self: center;
+  border-radius: 100%;
+  overflow: hidden;
+  align-content: center;
+  border: solid 2px rgb(238, 92, 75);
+}
+
+.noPhoto p {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.personPhoto:hover {
+  transform: scale(1.4);
+}
+
+.photo:hover {
+  border: solid 3px rgb(158, 64, 6);
+}
+
+.noPhoto:hover {
+  border: solid 3px rgb(158, 64, 6);
+}
+
+.noPhoto p:hover {
+  transform: scale(1.2);
+}
+
+.nameText,
+.surnameText {
+  font-size: 0.5rem;
+  font-weight: 650;
+  padding-bottom: 5px;
+}
+
+.subjectText {
+  margin: 3px 0px 12px 0px;
+  font-size: 0.4rem;
+  color: lightgray;
+  margin-top: 4%;
+  margin-bottom: 3.5%;
+}
+
+.countryText {
+  font-size: 0.3rem;
+  color: rgb(42, 37, 36);
+  margin-bottom: 9%;
+  color: #5d5d5d;
+}
+
+.roundedPhoto {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 7rem;
+}
+.statisticsTable tbody tr:nth-child(even) {
+  background-color: #fcf5fc;
+}
+
+.statisticsTable tbody td {
+  width: 20%;
+  padding: 8px 0px 8px 0px;
+  color: #5d5d5d;
+}
+
+.statisticsTable tbody td:first-child {
+  text-align: left;
+  padding-left: 15px;
+  width: 20%;
+}
+
+.statisticsTable {
+  width: 100%;
+  font-size: 0.4rem;
+  border-collapse: collapse;
+}
+.trNames{
+  font-size: 20px;
+  color: #5d5d5d;
+  padding-bottom: 2%;
+}
+.statisticsTable thead {
+  border-bottom: solid 1px black;
+}
+.statisticsTable thead th:hover {
+  background-color: #efecec;
+  border-bottom: solid 3px black;
+}
+.statisticsTable thead th:hover .tableArrow {
+  visibility: visible;
+}
+.statisticsTable thead th:not(:first-child) {
+  padding-left: 5.5%;
+}
+.tableArrow {
+  visibility: hidden;
+  display: inline-flex;
+  transition: transform 0.3s;
+  color: rgb(143, 187, 207);
+}
+
+.statisticsTable thead th {
+  padding: 9px;
+  text-align: left;
+}
+
+.underTableList {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.underTableList li {
+  font-size: 0.4rem;
+  color: rgb(143, 187, 207);
+  margin-left: 20px;
+}
+
+.underTableList li:hover {
+  color: blue;
+}
+
+#carouselOfTeacherCards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.overflow {
+  width: 100%;
+  gap: 0.4rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  scroll-behavior: smooth;
+  min-height: 7rem;
+}
+#carouselOfTeacherCards .arrowButton img {
+  opacity: 60%;
+  height: 3rem;
+  width: 1rem;
+}
+
+#carouselOfTeacherCards .arrowButton img:hover {
+  opacity: 100%;
+}
+
+#carouselOfTeacherCards .arrowButtonLeft {
+  position: absolute;
+  top: 1.5rem;
+  left: -1.4rem;
+}
+
+#carouselOfTeacherCards .arrowButtonRight {
+  position: absolute;
+  top: 1.5rem;
+  right: -1.4rem;
+}
+
+#carouselOfTeacherCards .roundedPhoto {
+  height: 6rem;
+}
+.arrowButton {
+  cursor: pointer;
+}
+
+.paragraphOfText > article {
+  text-align: left;
+  font-size: 15px;
+  color: #5d5d5d;
+}
+
+footer {
+  margin: 20px 0px 30px 0px;
+}
+
+.footerContainer {
+  display: flex;
+  flex-direction: row;
+  height: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+@media screen and (max-width: 1000px) {
+
+  .addTeacherPopup {
+    top: 5vh;
+    height: fit-content;
+    width: 40vw;
+    left: 30vw;
+    background-color: white;
+    overflow-y: auto;
+  }
+  .searchButton{
+    height: 1.5rem;
+  }
+  .addTeacherButton {
+    width: 25%;
+    font-size: 0.6rem;
+    height: 1.5rem;
+  }
+  .statisticsTable {
+    font-size: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+
+  .addTeacherPopup {
+    width: 50vw;
+    left: 25vw;
+  }
+
+  .teachersCardsContainer {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .searchButton{
+    height: 1.5rem;
+  }
+  .addTeacherButton {
+    width: 20%;
+    font-size: 0.7rem;
+    height: 2rem;
+  }
+  .statisticsTable {
+    font-size: 0.6rem;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .statisticsTable tbody td,
+  .statisticsTable thead th {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .statisticsTable thead th,
+  .statisticsTable tbody td {
+    padding: 6px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .teachersCardsContainer {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .photo {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .noPhoto {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .roundedPhoto {
+    height: 9rem;
+  }
+
+  #carouselOfTeacherCards .roundedPhoto {
+    height: 7.4rem;
+  }
+
+  .star {
+    width: 1.7rem;
+    right: 15%;
+
+  }
+
+  .addTeacherPopup {
+    top: 5vh;
+    height: fit-content;
+    width: 70vw;
+    left: 15vw;
+  }
+  .searchButton{
+    height: 1.5rem;
+  }
+  .addTeacherButton {
+    width: 30%;
+    font-size: 0.8rem;
+    height: 2.5rem;
+  }
+  .statisticsTable {
+    font-size: 0.7rem;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .statisticsTable thead, .statisticsTable tbody, .statisticsTable th, .statisticsTable td {
+    display: inline-block;
+    width: 100%;
+  }
+  .statisticsTable thead th {
+    text-align: left;
+  }
+
+  .statisticsTable thead th,
+  .statisticsTable tbody td {
+    padding: 5px;
+  }
+  .statisticsTable thead,
+  .statisticsTable tbody,
+  .statisticsTable th,
+  .statisticsTable td {
+    display: block;
+  }
+  .statisticsTable thead th {
+    text-align: left;
+  }
+
+  .statisticsTable tbody td {
+    text-align: left;
+    white-space: nowrap;
+    padding: 8px 5px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+
+  .teachersCardsContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .star {
+    width: 1.7rem;
+    right: 24%;
+
+  }
+
+  .addTeacherPopup {
+    top: 5vh;
+    height: fit-content;
+    width: 70vw;
+    left: 15vw;
+  }
+  .searchButton{
+    height: 1.5rem;
+  }
+  .addTeacherButton {
+    width: 40%;
+    font-size: 0.9rem;
+    height: 3rem;
+  }
+  .statisticsTable {
+    font-size: 0.8rem;
+  }
+
+  .statisticsTable thead th,
+  .statisticsTable tbody td {
+    padding: 4px;
+  }
+
+  .statisticsTable tbody td:first-child {
+    text-align: left;
+  }
+  .statisticsTable thead th:first-child,
+  .statisticsTable tbody td:first-child {
+    width: 30%;
+  }
+  .statisticsTable thead th,
+  .statisticsTable tbody td {
+    width: 20%;
+  }
+  .statisticsTable thead th {
+    text-align: center;
+  }
+
+  .statisticsTable tbody td {
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .teachersCardsContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .photo {
+    width: 12vh;
+    height: 12vh;
+  }
+
+  .noPhoto {
+    width: 12vh;
+    height: 12vh;
+  }
+
+  .roundedPhoto {
+
+    height: 18vh;
+  }
+
+  #carouselOfTeacherCards .roundedPhoto {
+    height: 18vh;
+  }
+
+  .star {
+    width: 1.7rem;
+    right: 37%;
+
+  }
+  .searchButton{
+    height: 1.5rem;
+  }
+  .addTeacherButton {
+    width: 50%;
+    font-size: 1rem;
+    height: 2.5rem;
+  }
+  .statisticsTable {
+    font-size: 0.9rem;
+  }
+
+  .statisticsTable thead th,
+  .statisticsTable tbody td {
+    padding: 3px;
+  }
+
+  .statisticsTable {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .statisticsTable thead, .statisticsTable tbody, .statisticsTable th, .statisticsTable td {
+    display: block;
+    width: 100%;
+  }
+}
+form {
+  padding: 20px;
+}
+
+label,
+.radio-group label,
+.background-color-group label {
+  color: #838282;
+}
+
+.form-container {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 33%;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+
+}
+.form-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+
+.form-header {
+  background-color: #333;
+  padding: 15px;
+  margin: 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-header h2 {
+  font-size: 24px;
+  color: white;
+  margin: 0;
+  font-weight: normal;
+}
+
+.close-btn {
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+label {
+  font-size: 13px;
+  color: #838282;
+  margin-top: 10px;
+  display: block;
+  text-align: left;
+  margin-bottom: -3%;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="color"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 0.8px solid black;
+  border-radius: 2px;
+  font-size: 13px;
+  height: 30px;
+  margin-top: 0;
+
+}
+select{
+  color: #838282;
+}
+textarea {
+  margin-top: 18px;
+  height: 80px;
+  margin-bottom: 5%;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff8a80;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff5252;
+}
+.background-color-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.background-color-group label {
+  margin-right: 7%;
+  font-size: 13px;
+  color: #838282;
+}
+
+.background-color-group input[type="color"] {
+  width: 30px;
+  height: 20px;
+  padding: 0;
+  border: 0.8px solid black;
+  border-radius: 3px;
+  margin-left: 5px;
+  margin-top: 7%;
+}
+
+
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+.radio-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.radio-group label {
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+}
+
+input[type="radio"] + label {
+  margin-right: 15px;
+}
+
+.row {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 3px;
+}
+
+.column {
+  flex: 1;
+}
+.form-container2 {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 55%;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  font-size: 15px;
+  height: 53%;
+}
+.teacher-info-popup {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.popup-content {
+  background: #fff;
+  border-radius: 8px;
+  width: 500px;
+  padding: 15px;
+  position: relative;
+}
+
+.popup-header {
+  display: flex;
+  align-items: center;
+}
+
+.popup-photo img {
+  width: 170%;
+  height: 170%;
+  padding: 17px;
+}
+
+.popup-details {
+  margin-left: 14%;
+  text-align: left;
+}
+
+.popup-details h3 {
+  font-size: 36px;
+  margin-bottom: 15%;
+}
+
+.popup-details p {
+  margin: 15px 0;
+  font-size: 13px;
+  color: #838282;
+}
+.popup-subject{
+  font-size: 20px;
+  color: black;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.popup-description {
+  margin-top: -15px;
+  padding: 15px;
+  text-align: justify;
+  font-size: 13px;
+  color: #838282;
+}
+a{
+  color: #007bff;
+}
+.toggle-map {
+  display: block;
+  margin-top: 6px;
+  color: #007bff;
+  text-decoration: underline;
+  text-align: left;
+  padding-left: 15px ;
+  text-decoration-style: dashed;
+  text-underline-offset: 5px;
+}
+
+.days-to-birthday {
+  font-size: 14px;
+  margin-top: 5px;
+  color: #333;
+}

@@ -1,0 +1,796 @@
+/* Import fonts */
+@import url("../fonts/Roboto.css");
+/* Reset and normalize */
+@import url("../css/normalize.css");
+* {
+    margin: 0px;
+}
+
+html {
+    font-size: 3vw;
+}
+
+body {
+    font-family: "Roboto";
+}
+
+.bodyDiv {
+    margin: 0 auto;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding-left: 5%;
+    padding-right: 5%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+header {
+    width: 100%;
+}
+
+.topOfHeader {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0px 14px 0;
+}
+
+header h1 {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 1.3em;
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 1px 0 black, -1px -1px 0 red;
+    margin: 0px;
+    padding: 0px;
+}
+
+header h1:hover {
+    color: white;
+    text-shadow: 2px 2px 0 black, -3px -1px 0 red;
+}
+
+.searchForm {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.searchForm:hover {
+    width: 55%;
+}
+
+.inputArea {
+    width: calc(100% - 2.5rem);
+    padding-left: 3%;
+    font-size: 0.4rem;
+    border: solid 1px darkgray;
+    height: 1.2rem;
+}
+.button {
+    background: white;
+    font-weight: 550;
+    border: solid 1px rgb(238, 92, 75);
+    color: rgb(238, 92, 75);
+}
+
+.searchButton {
+    margin-left: 20px;
+    width: 3rem;
+    font-size: 0.4rem;
+    height: 1.2rem;
+}
+
+.searchButton:hover {
+    color: white;
+    background-color: rgb(238, 92, 75);
+}
+
+.addTeacherButton a {
+    text-decoration: none;
+    color: rgb(238, 92, 75);
+}
+
+.bottomOfHeader {
+    display: flex;
+    flex-direction: row;
+    height: 2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bottomOfHeader {
+    display: flex;
+    flex-direction: row;
+    height: 2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu ul {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 0.5rem;
+    gap: 1rem;
+}
+
+.menu ul li a {
+    color: rgb(238, 92, 75);
+}
+
+.menu ul li a:hover {
+    color: rgb(158, 64, 6);
+}
+
+.addTeacherButton {
+    width: 18%;
+    font-size: 0.5rem;
+    height: 1.2rem;
+}
+
+.addTeacherButton:hover {
+    color: white;
+    background-color: rgb(238, 92, 75);
+}
+.addTeacherButton:hover a {
+    color: white;
+}
+
+hr {
+    align-self: center;
+    width: 50%;
+    border-color: black;
+}
+
+h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.topTeachersContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.filtersContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.filtersContainer div {
+    padding-right: 0.3rem;
+    margin-right: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    border-right: 1px dotted rgb(60, 60, 60);
+}
+
+.filtersContainer div:last-child {
+    border: 0px;
+}
+
+.filtersContainer div label {
+    padding-right: 0.1rem;
+    color: darkgray;
+    align-self: center;
+    font-size: 0.4rem;
+}
+
+.filtersContainer div label:hover {
+    color: black;
+}
+
+.filtersContainer select {
+    align-self: center;
+    color: rgb(60, 60, 60);
+    padding: 0.05rem;
+    font-size: 0.5rem;
+    height: 1rem;
+}
+
+.filtersContainer select option {
+    color: rgb(60, 60, 60);
+}
+
+.filtersContainer div input {
+    width: 0.4rem;
+    margin-right: 0.4rem;
+}
+
+.teachersCardsContainer {
+    margin: 20px 0px 10px 0;
+    width: 100%;
+    display: grid;
+    row-gap: 15px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.photo {
+    width: 3.6rem;
+    height: 3.6rem;
+    display: flex;
+    align-self: center;
+    border-radius: 100%;
+    border: solid 2px rgb(238, 92, 75);
+    overflow: hidden;
+}
+
+.star {
+    width: 0.6rem;
+    position: absolute;
+    right: 10%;
+    top: 0%;
+}
+
+.noPhoto {
+    width: 3.6rem;
+    height: 3.6rem;
+    display: flex;
+    align-self: center;
+    border-radius: 100%;
+    overflow: hidden;
+    width: 3.6rem;
+    height: 3.6rem;
+    display: flex;
+    align-content: center;
+    border: solid 2px rgb(238, 92, 75);
+}
+
+.noPhoto p {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.personPhoto:hover {
+    transform: scale(1.4);
+}
+
+.photo:hover {
+    border: solid 3px rgb(158, 64, 6);
+}
+
+.noPhoto:hover {
+    border: solid 3px rgb(158, 64, 6);
+}
+
+.noPhoto p:hover {
+    transform: scale(1.2);
+}
+
+.nameText,
+.surnameText {
+    font-size: 0.5rem;
+    font-weight: 650;
+    padding-bottom: 5px;
+}
+
+.subjectText {
+    margin: 3px 0px 12px 0px;
+    font-size: 0.4rem;
+    color: lightgray;
+    margin-top: 4%;
+    margin-bottom: 3.5%;
+}
+
+.countryText {
+    font-size: 0.3rem;
+    color: rgb(42, 37, 36);
+    margin-bottom: 9%;
+    color: #5d5d5d;
+}
+
+
+.roundedPhoto {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 7rem;
+}
+
+.statisticsTable tbody tr:nth-child(even) {
+    background-color: #fcf5fc;
+}
+
+.statisticsTable tbody td {
+    width: 20%;
+    padding: 8px 0px 8px 0px;
+    color: #5d5d5d;
+}
+
+.statisticsTable tbody td:first-child {
+    text-align: left;
+    padding-left: 15px;
+    width: 20%;
+}
+
+.statisticsTable {
+    width: 100%;
+    font-size: 0.4rem;
+    border-collapse: collapse;
+}
+.trNames{
+    font-size: 20px;
+    color: #5d5d5d;
+    padding-bottom: 2%;
+}
+.statisticsTable thead {
+    border-bottom: solid 1px black;
+}
+.statisticsTable thead th:hover {
+    background-color: #efecec;
+    border-bottom: solid 3px black;
+}
+.statisticsTable thead th:hover .tableArrow {
+    visibility: visible;
+}
+.statisticsTable thead th:not(:first-child) {
+    padding-left: 5.5%;
+}
+
+
+.statisticsTable th {
+    cursor: pointer;
+}
+
+.tableArrow {
+    visibility: hidden;
+    display: inline-flex;
+    transition: transform 0.3s;
+    color: rgb(143, 187, 207);
+}
+
+.statisticsTable thead th {
+    padding: 9px;
+    text-align: left;
+}
+
+
+.underTableList {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.underTableList li {
+    font-size: 0.4rem;
+    color: rgb(143, 187, 207);
+    margin-left: 20px;
+}
+
+.underTableList li:hover {
+    color: blue;
+}
+
+#carouselOfTeacherCards {
+    position: relative;
+    width: 100%;
+}
+
+.overflow {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    gap: 0 10px;
+    min-height: 7rem;
+}
+
+#carouselOfTeacherCards .arrowButton img {
+    opacity: 60%;
+    height: 3rem;
+    width: 1rem;
+}
+
+#carouselOfTeacherCards .arrowButton img:hover {
+    opacity: 100%;
+}
+
+#carouselOfTeacherCards .arrowButtonLeft {
+    position: absolute;
+    top: 1.5rem;
+    left: -1.4rem;
+}
+
+#carouselOfTeacherCards .arrowButtonRight {
+    position: absolute;
+    top: 1.5rem;
+    right: -1.4rem;
+}
+
+#carouselOfTeacherCards .roundedPhoto {
+    height: 6rem;
+}
+
+.paragraphOfText > article {
+    text-align: left;
+    font-size: 15px;
+    color: #5d5d5d;
+}
+#carouselOfTeacherCards .overflow {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+}
+
+
+#carouselOfTeacherCards .overflow::-webkit-scrollbar {
+    display: none;
+}
+
+footer {
+    margin: 20px 0px 30px 0px;
+}
+
+.footerContainer {
+    display: flex;
+    flex-direction: row;
+    height: 2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.addTeacherPopupBack {
+    display: none;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.addTeacherPopup {
+    position: fixed;
+    top: 5vh;
+    height: fit-content;
+    width: 30vw;
+    left: 35%;
+    background-color: white;
+    overflow-y: auto;
+
+}
+
+.popupForm {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.popupHeader {
+    width: 100%;
+    background-color: rgb(68, 64, 64);
+    height: 8vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.popupHeader h3 {
+    color: white;
+    font-size: 3vh;
+    align-self: center;
+    font-weight: 600;
+    padding-left: 10px;
+}
+
+.closePopup {
+    margin-right: 2vh;
+    height: 8vh;
+    align-items: center;
+    padding: 0px;
+    width: 1rem;
+    display: flex;
+    color: white;
+    font-size: 3vh;
+    font-weight: 800;
+    background-color: rgb(68, 64, 64);
+    border: 0px;
+    align-self: center;
+}
+
+.closePopup a {
+    color: white;
+}
+
+.popupForm {
+    padding: 3vh;
+}
+
+.flexColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.flexColumn label {
+    color: darkgray;
+    margin-bottom: 6px;
+    font-size: 2vh;
+    width: fit-content;
+    justify-self: left;
+}
+
+.enterName .addName {
+    padding-left: 5px;
+    color: rgb(29, 25, 25);
+}
+
+.flexColumn input,
+.flexColumn select {
+    color: rgb(29, 25, 25);
+    margin-bottom: 3px;
+    font-size: 1.5vh;
+    padding: 0px;
+    height: 4vh;
+}
+
+.gridForm {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    -moz-column-gap: 1rem;
+    column-gap: 1rem;
+}
+
+.gridForm label {
+    margin-top: 6px;
+    font-size: 1.5vh;
+}
+
+.addCountry,
+.addCity,
+.addEmail,
+.addPhone,
+.addDate {
+    width: 100%;
+}
+
+.addTeacherForm {
+    width: 100%;
+    height: 1rem;
+}
+
+.genderChoice {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 4px 0px 4px 0px;
+}
+
+.genderChoice label {
+    margin: 0px;
+    margin: 0px 0.3rem 0px 0.3rem;
+}
+
+.genderChoice label:first-child {
+    margin: 0px;
+    margin-right: 1.5rem;
+}
+
+.addBgColor {
+    width: 2rem;
+    border: solid 2px darkgray;
+}
+
+.addNotes {
+    width: 100%;
+    height: 10vh;
+    margin-bottom: 0.6rem;
+    resize: none;
+}
+
+.notesContainer label {
+    justify-self: left;
+}
+
+.teacherInfoPopupBack {
+    display: none;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.teacherInfoPopup {
+    position: fixed;
+    top: 15vh;
+    height: fit-content;
+    width: 50vw;
+    left: 25vw;
+    background-color: white;
+}
+
+.rightUpOfInfoPopupHeader {
+    display: flex;
+}
+
+.favoriteStarButton {
+    background-color: rgb(68, 64, 64);
+    border: 0px;
+}
+
+.photoPlusData div {
+    width: 40%;
+}
+
+.photoPlusData img {
+    align-items: center;
+    width: 100%;
+}
+
+.teacherInfoPopup img {
+    vertical-align: middle;
+    padding: 0;
+    width: 2vh;
+}
+
+.teacherInfoPopup .teacherPhotoInfoPopup {
+    margin: 0.7vh;
+    width: 100%;
+}
+
+.photoPlusData {
+    display: flex;
+    flex-direction: row;
+}
+
+.photoPlusData h1 {
+    margin: 2vh 0 2vh 0;
+    font-size: 1.2rem;
+    font-weight: 550;
+}
+
+.photoPlusData h3 {
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.teacherDataPopup {
+    display: flex;
+    flex-direction: column;
+    margin-left: 3vh;
+}
+
+.teacherDataPopup p:first-child {
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.teacherDataPopup p {
+    margin-bottom: 0.5vh;
+    font-size: 0.5rem;
+    text-align: left;
+}
+
+.email {
+    color: blue;
+}
+
+.dataPopUp p {
+    text-align: left;
+    padding: 1vh;
+    font-size: 0.3rem;
+}
+
+.toggleMap {
+    display: block;
+    margin-top: 6px;
+    color: #007bff;
+    text-decoration: underline;
+    text-align: left;
+    padding-left: 10px ;
+    text-decoration-style: dashed;
+    text-underline-offset: 5px;
+    font-size: 0.3rem;
+}
+
+@media screen and (max-width: 1000px) {
+    .addTeacherPopup {
+        top: 5vh;
+        height: fit-content;
+        width: 40vw;
+        left: 30vw;
+        background-color: white;
+        overflow-y: auto;
+    }
+}
+@media screen and (max-width: 700px) {
+    .addTeacherPopup {
+        width: 50vw;
+        left: 25vw;
+    }
+    .teachersCardsContainer {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+@media screen and (max-width: 600px) {
+    .teachersCardsContainer {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .photo {
+        width: 5rem;
+        height: 5rem;
+    }
+    .noPhoto {
+        width: 5rem;
+        height: 5rem;
+    }
+    .roundedPhoto {
+        height: 9rem;
+    }
+    #carouselOfTeacherCards .roundedPhoto {
+        height: 7.4rem;
+    }
+    .star {
+        width: 1.7rem;
+        right: 15%;
+    }
+    .addTeacherPopup {
+        top: 5vh;
+        height: fit-content;
+        width: 70vw;
+        left: 15vw;
+    }
+}
+@media screen and (max-width: 500px) {
+    .teachersCardsContainer {
+        grid-template-columns: 1fr 1fr;
+    }
+    .star {
+        width: 1.7rem;
+        right: 24%;
+    }
+    .addTeacherPopup {
+        top: 5vh;
+        height: fit-content;
+        width: 70vw;
+        left: 15vw;
+    }
+}
+@media screen and (max-width: 400px) {
+    .teachersCardsContainer {
+        grid-template-columns: 1fr;
+    }
+    .photo {
+        width: 12vh;
+        height: 12vh;
+    }
+    .noPhoto {
+        width: 12vh;
+        height: 12vh;
+    }
+    .roundedPhoto {
+        height: 18vh;
+    }
+    #carouselOfTeacherCards .roundedPhoto {
+        height: 18vh;
+    }
+    .star {
+        width: 1.7rem;
+        right: 37%;
+    }
+}
